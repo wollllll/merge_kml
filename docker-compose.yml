@@ -38,34 +38,7 @@ services:
             MYSQL_PASSWORD: local
             TZ: 'Asia/Tokyo'
         ports:
-            - '3306:3306'
-        networks:
-            - backend
-    node:
-        image: node:16.13.0
-        tty: true
-        environment:
-            - NODE_ENV=development
-        volumes:
-            - .:/var/www:cached
-            - node_modules_volume:/var/www/node_modules
-        ports:
-            - '8080:8080'
-        working_dir: /var/www
-    mailcatcher:
-        image: schickling/mailcatcher
-        ports:
-            - '1080:1080'
-        networks:
-            - backend
-    minio:
-        image: minio/minio
-        ports:
-            - '9000:9000'
-        environment:
-            - MINIO_ROOT_USER=local
-            - MINIO_ROOT_PASSWORD=local
-        command: server /data --console-address :9090
+            - '3304:3306'
         networks:
             - backend
 
